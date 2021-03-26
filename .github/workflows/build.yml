@@ -20,7 +20,7 @@ jobs:
       - name: Sonarscanner for dotnet
         uses: Secbyte/dotnet-sonarscanner@v2.3
         with:
-          buildCommand: docker-compose up -d
+          buildCommand: dotnet build .
           projectKey: rodhall85_nopcommerce
           projectName: nopCommerce
           sonarOrganisation: rodders

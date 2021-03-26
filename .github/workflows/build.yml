@@ -26,6 +26,7 @@ jobs:
           sonarProjectName:  nopCommerce
           # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
           sonarOrganization: rodders
+          dotnetBuildArguments: ./src
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

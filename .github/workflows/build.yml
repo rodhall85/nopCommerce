@@ -17,17 +17,15 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Sonarscanner for dotnet
-        uses: actions/setup-dotnet@v1.7.2
+      - name: SonarScanner for .NET 5 with pull request decoration support
+        uses: highbyte/sonarscan-dotnet@2.0
         with:
-          buildCommand: dotnet build .
-          projectKey: rodhall85_nopcommerce
-          projectName: nopCommerce
-          sonarOrganisation: rodders
-          beginArguments: >
-              /d:sonar.verbose="true"
-              /d:sonar.cs.opencover.reportsPaths='"/path/to/coverage.xml","/path/to/coverage.2.xml"'
-              /d:sonar.coverage.exclusions='"**/*.cs","**/*.md"'
+          # The key of the SonarQube project
+          sonarProjectKey: rodhall85_nopcommerce
+          # The name of the SonarQube project
+          sonarProjectName:  nopCommerce
+          # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
+          sonarOrganization: rodders
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

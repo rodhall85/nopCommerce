@@ -18,16 +18,16 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Sonarscanner for dotnet
-          uses: Secbyte/dotnet-sonarscanner@v2.3
-          with:
-            buildCommand: docker-compose up -d
-            projectKey: rodhall85_nopcommerce
-            projectName: nopCommerce
-            sonarOrganisation: rodders
-            beginArguments: >
-                /d:sonar.verbose="true"
-                /d:sonar.cs.opencover.reportsPaths='"/path/to/coverage.xml","/path/to/coverage.2.xml"'
-                /d:sonar.coverage.exclusions='"**/*.cs","**/*.md"'
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: Secbyte/dotnet-sonarscanner@v2.3
+        with:
+          buildCommand: docker-compose up -d
+          projectKey: rodhall85_nopcommerce
+          projectName: nopCommerce
+          sonarOrganisation: rodders
+          beginArguments: >
+              /d:sonar.verbose="true"
+              /d:sonar.cs.opencover.reportsPaths='"/path/to/coverage.xml","/path/to/coverage.2.xml"'
+              /d:sonar.coverage.exclusions='"**/*.cs","**/*.md"'
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
